@@ -1,0 +1,40 @@
+package demo;
+
+public class RecursiveProbs {
+private int count = 0;
+
+public boolean recursiveContains(char c, String s){
+	if(s.length() == 0) return false; // base case
+	if(s.charAt(s.length() - 1) == c) return true;
+	else return recursiveContains(c,s.substring(0,s.length() - 1));
+}
+public boolean recursiveAllCharactersSame(String s){
+	if(s.length() <= 1)
+	 return true; 
+	else if (s.charAt(0) != s.length() - 1)
+		return false; 
+	else
+	return recursiveAllCharactersSame(s.substring(1,s.length() - 1);
+	    
+	
+}
+public String recursiveReverse(String s){
+	if(s.length() == 0) return s; // base case
+	char c = s.charAt(s.length() - 1);
+	return c + recursiveReverse(s.substring(0, s.length() - 1));
+}
+public int recursiveCount(char c, String s){
+	if(s.length() == 0) return count; // base case
+	else{//start the count
+			if(recursiveContains(c,s) == true){
+				count++;
+				return	recursiveCount(c,s.substring(0,s.length() - 1));
+			
+	          }
+		
+        }
+	return count; // this never happens. . .
+	
+}
+}
+

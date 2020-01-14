@@ -1,0 +1,53 @@
+package demo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class PersisterTest {
+
+	
+	@Test
+	public void TestStudentObjectNotNull(){
+		Student a = new Student("John", 3.1);
+		AssertNotNull(a);
+	}
+	//now test getter, setter, constructor (AssertEquals) so we know they are the same vars
+
+	@Test
+	public void TestStudentGetNameEquals(){
+
+		Student a = new Student("John", 3.1);
+		AssertEquals("John", a.getName());
+	}
+
+	@Test
+	public void TestStudentGetGpaEquals(){
+
+		Student a = new Student("John", 3.1);
+		AssertEquals(3.1, a.getGpa);
+	}
+
+	@Test
+	public void TestStudentSetNameNotEquals(){
+	
+		Student a = new Student("John", 3.1);
+		a.setName("Bob");
+		AssertNotEquals("John", a.getName());
+	}
+
+	@Test
+	public void TestStudentSetGpaNotEquals(){
+		
+		Student a = new Student("John", 3.1);
+		a.setGpa(4.0);
+		AssertNotEquals(3.1, a.getGpa());
+	}
+
+	@Test
+	public void TestCourseNotNull(){
+
+		Course c = new Course("Class1", ArrayList<Student> list);
+		AssertNotNull(c);
+	}
+}

@@ -1,0 +1,76 @@
+package demo;
+import java.io.*;
+import java.util.*;
+
+public class Persister<T> implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void saveListToFile(File f, ArrayList<T> list)
+	{
+		ObjectOutputStream out = null;
+		try{
+			out = new ObjectOutputStream(new BufferedOutputStream(new
+					FileOutputStream(f)));
+			out.writeObject(list);
+			out.close();
+		   }
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void saveObjectToFile(File f, T element){
+		
+		ObjectOutputStream out = null;
+		try{
+				out = new ObjectOutputStream(new BufferedOutputStream(
+					new FileOutputStream(f)));
+				out.writeObject(element);
+				out.close();
+		   }
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public ArrayList<T> retrieveListFromFile(File f){
+		
+		ObjectInputStream in = null;
+		ArrayList<T> list = null;
+		try{
+				in = new ObjectInputStream(new BufferedInputStream(new
+						FileInputStream(f)));
+				list = (ArrayList<T>) in.readObject();
+				in.close();
+		   }
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public T retrieveObjectFromFile(File f){
+		ObjectInputStream in = null;
+		T element = null;
+		try{
+			in = new ObjectInputStream(new BufferedInputStream(new
+					FileInputStream(f)));
+			element = (T) in.readObject();
+			in.close();
+		   }
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return element;
+	}
+
+
+
+}

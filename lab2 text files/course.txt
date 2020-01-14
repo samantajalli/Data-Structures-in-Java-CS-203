@@ -1,0 +1,26 @@
+package demo;
+import java.util.*; // for ArrayList and Scanner
+import java.io.Serializable;
+
+
+public class Course implements Serializable  {
+	
+	/**
+	 * 
+	 */private static final long serialVersionUID = 1L;
+	 
+	private String name ;
+	private ArrayList<Student> persons = new ArrayList<Student>();
+	
+	public Course(String nameln, ArrayList<Student> personsln){
+		name = nameln;
+		persons = personsln;
+	}
+	
+	public ArrayList<Student> addStudent(Student s){//adds one student
+		persons.add(s);
+		return persons;
+		
+	}
+
+}

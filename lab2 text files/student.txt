@@ -1,0 +1,36 @@
+package demo;
+import java.io.Serializable;
+
+
+public class Student implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String name;
+	private double gpa;
+	
+	public Student(String nameln, double gpaln){//constructor
+		name = nameln;
+		gpa = gpaln;
+	}
+	
+	public void setName(String name){//setter
+		this.name = name;
+	}
+	
+	public String getName(){//getter
+		return name;
+	}
+	
+	public void setGpa(double gpa){//setter
+		this.gpa = gpa;
+	}
+	
+	public double getGpa(){//getter
+		return gpa;
+	}
+	
+	
+}
+

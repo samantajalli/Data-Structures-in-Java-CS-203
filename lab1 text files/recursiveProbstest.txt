@@ -1,0 +1,93 @@
+package demo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class RecursiveProbsTest {
+
+	
+	/**public void test() {
+		fail("Not yet implemented");
+	}**/
+	@Test
+		public void testRecursiveContainsWithEmptyString(){
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "";
+			assertFalse(r.recursiveContains('a',s));
+		}
+	@Test
+		public void testRecursiveContainsWithNoOccurrences(){
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "The rain in Spain falls mainly on the plain.";
+			assertFalse(r.recursiveContains('z', s));
+		}
+	@Test
+		public void testRecursiveContainsWithOccurrences(){
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "The rain in Spain falls mainly on the plain.";
+			assertTrue(r.recursiveContains('a',s));
+		}
+	@Test
+		public void testAllSameWithEmptyString(){
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "";
+			assertTrue(r.recursiveAllCharactersSame(s));
+		} 
+	@Test
+		public void testAllSameWithDifferingCharacters(){
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "The rain in Spain falls mainly on the plain.";
+			assertFalse(r.recursiveAllCharactersSame(s));
+		}//assertFalse means it should return false, and there will be a 
+	//green line, not a red line with failure errors
+	@Test
+		public void testAllSameWithAllSameCharacters(){//Should assertTrue
+			RecursiveProbs r = new RecursiveProbs();
+			String s = "aaaaa";
+			assertTrue(r.recursiveAllCharactersSame(s));
+	}
+		
+	@Test
+		public void testRecursiveReverseEmptyString(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "";
+		assertEquals(s, r.recursiveReverse(s));//returns empty string
+	}
+	
+	@Test
+		public void testReverseNonEmptyString(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "hello";
+		assertNotSame(r.recursiveReverse(s) ,s);
+	}
+	@Test
+		public void testRecursiveCountEmptyString(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "";
+		char c = 'e';
+		assertNotNull( r.recursiveCount(c, s));
+	}
+	@Test
+	public void testRecursiveCountEmptyString1(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "";
+		char c = 'e';
+		assertEquals(r.recursiveCount(c, s), 0);
+	}
+	@Test
+		public void testRecursiveCountNonEmptyString(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "aa";
+		char c = 'a';
+		assertEquals(r.recursiveCount(c, s), 2);
+	}
+	@Test
+		public void testRecursiveCountNoCharExist(){
+		RecursiveProbs r = new RecursiveProbs();
+		String s = "aaa";
+		char c = 'c';
+		assertEquals(r.recursiveCount(c, s), 0);
+	}
+
+}
